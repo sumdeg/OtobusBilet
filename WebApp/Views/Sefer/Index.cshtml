@@ -1,0 +1,38 @@
+﻿@model List<Sefer>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Sefer Id</th>
+        <th>Kalkış Şehir</th>
+        <th>Varış Şehir</th>
+        <th>Sefer Tarihi</th>
+        <th>Kalkış Saati</th>
+        <th>Sefer Ücreti</th>
+        @*<th>Sil</th>*@
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.SeferId</td>
+            <td>@item.KalkisSehir</td>
+            <td>@item.VarisSehir</td>
+            <td>@item.SeferTarihi</td>
+            <td>@item.KalkisZamani</td>
+            <td>@item.SeferUcret</td>
+
+            @*<td><a href="/Sefer/DeleteSefer/@item.SeferId" class="btn btn-danger">Seferi Sil</a></td>*@
+            <td><a href="/Sefer/UpdateSefer/@item.SeferId" class="btn btn-warning">Seferi Güncelle</a></td>
+
+        </tr>
+    }
+</table>
+<br />
+<a href="/Sefer/AddSefer" class="btn btn-primary">Yeni Sefer Ekle</a>
+
